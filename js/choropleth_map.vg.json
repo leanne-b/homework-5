@@ -1,36 +1,35 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "title": "Victorian Median House Prices (2022)",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
-    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    "url": "./suburb-2-vic.topojson",
+    "format": {"type": "topojson", "feature": "suburb-2-vic"}
   },
   "transform": [
     {
-      "lookup": "properties.NAME",
+      "lookup": "properties.vic_loca_2",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
+          "url": "../data/2022-suburb-median-house-price.csv"
         },
-        "key": "Country",
-        "fields": ["Active"]
+        "key": "locality",
+        "fields": ["Median"]
       }
-    },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+    }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "Median",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {"type": "linear"}
     },
     "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Active", "type": "quantitative"}
+      {"field": "properties.vic_loca_2", "type": "nominal", "title": "Country"},
+      {"field": "locality", "type": "quantitative"}
     ]
   }
 }
