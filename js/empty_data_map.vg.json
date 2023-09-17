@@ -7,7 +7,7 @@
     "url": "./suburb-2-vic.topojson",
     "format": {"type": "topojson", "feature": "suburb-2-vic"}
   },
-  "projection": {"type": ""},
+  "projection": {"type": "mercator"},
   "layer":[
     {
       "transform": [
@@ -23,7 +23,7 @@
     {
       "transform": [
         {
-          "lookup": "properties.vic_loca_2",
+          "lookup": "vic_loca_2",
           "from": {
             "data": {
               "url": "../data/2022-suburb-median-house-price.csv"

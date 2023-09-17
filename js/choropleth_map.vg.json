@@ -5,7 +5,7 @@
   "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
-    "url": "./suburb-2-vic.topojson",
+    "url": "./suburb-2-vic.json",
     "format": {"type": "topojson", "feature": "suburb-2-vic"}
   },
   "transform": [
@@ -25,11 +25,11 @@
     "color": {
       "field": "Median",
       "type": "quantitative",
-      "scale": {"type": "linear"}
+      "scale": {"type": "linear", "scheme": "blues"}
     },
     "tooltip": [
-      {"field": "properties.vic_loca_2", "type": "nominal", "title": "Country"},
-      {"field": "locality", "type": "quantitative"}
+      {"field": "properties.vic_loca_2", "type": "nominal", "title": "Suburb"},
+      {"field": "Median", "type": "quantitative"}
     ]
   }
 }
