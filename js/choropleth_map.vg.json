@@ -3,9 +3,9 @@
   "title": "Victorian Median House Prices (2022)",
   "width": 800,
   "height": 400,
-  "projection": {"type": "equalEarth"},
+  "projection": {"type": "mercator"},
   "data": {
-    "url": "./suburb-2-vic.json",
+    "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/js/suburb-2-vic.json",
     "format": {"type": "topojson", "feature": "suburb-2-vic"}
   },
   "transform": [
@@ -13,7 +13,7 @@
       "lookup": "properties.vic_loca_2",
       "from": {
         "data": {
-          "url": "../data/2022-suburb-median-house-price.csv"
+          "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/2022-suburb-median-house-price.csv"
         },
         "key": "locality",
         "fields": ["Median"]

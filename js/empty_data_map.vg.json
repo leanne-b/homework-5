@@ -4,30 +4,27 @@
   "width": 800,
   "height": 500,
   "data": {
-    "url": "./suburb-2-vic.topojson",
+    "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/js/suburb-2-vic.json",
     "format": {"type": "topojson", "feature": "suburb-2-vic"}
   },
   "projection": {"type": "mercator"},
-  "layer":[
+  "layer": [
     {
       "transform": [
-        {"calculate": "'Data is not available in ' + datum.properties.vic_loca_2", "as": "note"}
+        {
+          "calculate": "'Data is not available in ' + datum.properties.vic_loca_2",
+          "as": "note"
+        }
       ],
       "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-      "encoding": {
-        "tooltip": {
-          "field": "note"
-        }
-      }
+      "encoding": {"tooltip": {"field": "note"}}
     },
     {
       "transform": [
         {
-          "lookup": "vic_loca_2",
+          "lookup": "properties.vic_loca_2",
           "from": {
-            "data": {
-              "url": "../data/2022-suburb-median-house-price.csv"
-            },
+            "data": {"url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/2022-suburb-median-house-price.csv"},
             "key": "locality",
             "fields": ["Median"]
           }
@@ -39,18 +36,20 @@
           "field": "Median",
           "type": "quantitative",
           "scale": {
-          
             "domain": [100000, 500000, 1000000, 5000000],
             "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
           },
           "title": "Median ($)"
         },
         "tooltip": [
-          {"field": "properties.vic_loca_2", "type": "nominal", "title": "Suburb"},
+          {
+            "field": "properties.vic_loca_2",
+            "type": "nominal",
+            "title": "Suburb"
+          },
           {"field": "Median", "type": "quantitative"}
         ]
       }
     }
   ]
-  
 }
