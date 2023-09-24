@@ -5,9 +5,14 @@
   "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/js/suburb-2-vic.json",
-    "format": {"type": "topojson", "feature": "suburb-2-vic"}
+    "format": {
+      "type": "topojson",
+      "feature": "suburb-2-vic"
+    }
   },
-  "projection": {"type": "mercator"},
+  "projection": {
+    "type": "mercator"
+  },
   "layer": [
     {
       "transform": [
@@ -16,28 +21,53 @@
           "as": "note"
         }
       ],
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-      "encoding": {"tooltip": {"field": "note"}}
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
     },
     {
       "transform": [
         {
           "lookup": "properties.vic_loca_2",
           "from": {
-            "data": {"url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/2022-suburb-median-house-price.csv"},
+            "data": {
+              "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/2022-suburb-median-house-price.csv"
+            },
             "key": "locality",
-            "fields": ["Median"]
+            "fields": [
+              "Median"
+            ]
           }
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "white"},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white"
+      },
       "encoding": {
         "color": {
           "field": "Median",
           "type": "quantitative",
           "scale": {
-            "domain": [100000, 500000, 1000000, 5000000],
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+            "domain": [
+              100000,
+              500000,
+              1000000,
+              5000000
+            ],
+            "range": [
+              "#fdbe85",
+              "#fd8d3c",
+              "#e6550d",
+              "#a63603"
+            ]
           },
           "title": "Median ($)"
         },
@@ -47,7 +77,11 @@
             "type": "nominal",
             "title": "Suburb"
           },
-          {"field": "Median", "type": "quantitative"}
+          {
+            "field": "Median",
+            "type": "quantitative",
+            "format": "$,.0f"
+          }
         ]
       }
     }
