@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Median House Prices Over Time",
     "data": {"url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/median-house-price-long.csv"},
-    "title": {"text": {"expr": "suburb"} },
+    "title": {"text": {"expr": "suburb + ' Median House Prices'"} },
     "width": "container",
     "mark": {"type": "line",
     "point": true},
@@ -14,7 +14,7 @@
         {
             "field": "median",
             "type": "quantitative",
-            "title": "Median Price",
+            "title": "Price",
             "format": "$,.0f"
         }
 
