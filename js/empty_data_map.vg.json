@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Victorian Median House Prices (2022)",
+  "title": "Suburban Median House Prices (2022)",
   "width": "container",
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/js/suburb-2-vic.json",
     "format": {

@@ -1,12 +1,25 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Median House Prices Over Time",
-    "data": {"url": "data/median-house-price-long.csv"},
-    "transform": [{"filter": "datum.locality==='suburb'"}],
-    "mark": "line",
+    "data": {"url": "https://raw.githubusercontent.com/leanne-b/homework-5/main/data/median-house-price-long.csv"},
+    "title": {"text": {"expr": "suburb"} },
+    "width": "container",
+    "mark": {"type": "line",
+    "point": true},
     "encoding": {
-      "x": {"field": "year", "type": "temporal"},
-      "y": {"field": "median", "type": "quantitative"}
+      "x": {"field": "year", "type": "temporal", "title": "Year" },
+      "y": {"field": "median", "type": "quantitative", "title": "Median Price", "axis": {"format": "$,.0f"}},
+      "tooltip": [
+        {"field": "year", "type": "temporal", "title": "Year", "format": "%Y"},
+        {
+            "field": "median",
+            "type": "quantitative",
+            "title": "Median Price",
+            "format": "$,.0f"
+        }
+
+    ]
+
     },
     "params": [
         {
@@ -23,5 +36,6 @@
                 "name": "Suburb: "
             }
         }
-    ]
+    ],
+    "transform": [{"filter": "datum.locality==suburb"}]
   }
